@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     width: 100%;
-    background: #24282e;
+    background: #0f212b;
     margin: 0;
     color: #b2b2b2;
 }
@@ -99,6 +99,7 @@ input {
 }
 
 .output {
+    font-style: normal !important;
     line-height: 0;
     -webkit-font-smoothing: none !important;
     font-weight: 700;

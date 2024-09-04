@@ -321,7 +321,7 @@
     padding: 4px 5px;
     margin: 0;
     width: 100%;
-    background: black;
+    background: transparent;
     border-radius: 3px;
     color: #222
 }

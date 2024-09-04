@@ -110,9 +110,9 @@ input {
 
 .generated {
     background-color: black;
+    padding: 4px;
     display: inline-block;
     padding: 8px 0px
-    
 }
 
 .me {

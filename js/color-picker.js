@@ -1950,3 +1950,14 @@
     });
   });
   
+  $("#color-picker").spectrum({
+    color: "#000", // default color
+    showInput: true,
+    preferredFormat: "hex",
+    change: function(color) {
+        // Only update the background color and preserve other styles
+        $(".generated").each(function() {
+            $(this).css("background-color", color.toHexString());
+        });
+    },
+});

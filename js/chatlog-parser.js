@@ -68,7 +68,7 @@ $(document).ready(function() {
             $(".generated:last").css("margin-bottom", "30px");
             $(".generated").css(
                 "background-color",
-                "transparent"
+                "black"
             );
         });
 

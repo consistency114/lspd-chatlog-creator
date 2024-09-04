@@ -103,17 +103,16 @@ input {
     -webkit-font-smoothing: none !important;
     font-weight: 700;
     color: #fff;
-    background-color: black;
-    padding: 4px;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     letter-spacing: 0;
     font-size: 12px
 }
 
 .generated {
-    background-color: #000;
+    background-color: black;
     display: inline-block;
     padding: 8px 0px
+    
 }
 
 .me {

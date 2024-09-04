@@ -108,76 +108,68 @@
       src="js/app.js"
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-    >
-  </script>
+    ></script>
 
-<script>
-  $(document).ready(function () {
-  // Download with background
-  $("#downloadOutput").click(function () {
-    domtoimage
-      .toBlob(document.getElementById("output"))
-      .then(function (blob) {
-        window.saveAs(
-          blob,
-          new Date()
-            .toLocaleString()
-            .replaceAll(",", "_")
-            .replaceAll(" ", "_")
-            .replaceAll("/", "-")
-            .replace("__", "_")
-            .replaceAll(":", "-") +
-            "_" +
-            "chatlog.png"
-        );
-      })
-      .then(function () {
-        $(".generated").css("background-color", "black");
+    <script>
+      $(document).ready(function () {
+        // Download with background
+        $("#downloadOutput").click(function () {
+          domtoimage
+            .toBlob(document.getElementById("output"), { bgcolor: 'transparent' })
+            .then(function (blob) {
+              window.saveAs(
+                blob,
+                new Date()
+                  .toLocaleString()
+                  .replaceAll(",", "_")
+                  .replaceAll(" ", "_")
+                  .replaceAll("/", "-")
+                  .replace("__", "_")
+                  .replaceAll(":", "-") +
+                  "_" +
+                  "chatlog.png"
+              );
+            });
+        });
+    
+        // Download with transparent background
+        $("#downloadOutputTransparent").click(function () {
+          domtoimage
+            .toBlob(document.getElementById("output"), { bgcolor: 'transparent' })
+            .then(function (blob) {
+              window.saveAs(
+                blob,
+                new Date()
+                  .toLocaleString()
+                  .replaceAll(",", "_")
+                  .replaceAll(" ", "_")
+                  .replaceAll("/", "-")
+                  .replace("__", "_")
+                  .replaceAll(":", "-") +
+                  "_" +
+                  "chatlog.png"
+              );
+            });
+        });
+    
+        // Copy to clipboard with transparency
+        $("#copyOutput").click(function () {
+          domtoimage.toBlob(document.getElementById("output"), { bgcolor: 'transparent' }).then(function (blob) {
+            const item = new ClipboardItem({ "image/png": blob });
+            navigator.clipboard
+              .write([item])
+              .then(function () {
+                alert("Image copied to clipboard!");
+              })
+              .catch(function (error) {
+                console.error("Failed to copy: ", error);
+                alert("Copy failed, please try again.");
+              });
+          });
+        });
       });
-  });
-
-  // Download transparent
-  $("#downloadOutputTransparent").click(function () {
-    $(".generated").css("background-color", "black");
-    domtoimage
-      .toBlob(document.getElementById("output"))
-      .then(function (blob) {
-        window.saveAs(
-          blob,
-          new Date()
-            .toLocaleString()
-            .replaceAll(",", "_")
-            .replaceAll(" ", "_")
-            .replaceAll("/", "-")
-            .replace("__", "_")
-            .replaceAll(":", "-") +
-            "_" +
-            "chatlog.png"
-        );
-      })
-      .then(function () {
-        $(".generated").css("background-color", "black");
-      });
-  });
-
-  // Copy to clipboard
-  $("#copyOutput").click(function () {
-  domtoimage.toBlob(document.getElementById("output"), { bgcolor: 'transparent' }).then(function (blob) {
-    const item = new ClipboardItem({ "image/png": blob });
-    navigator.clipboard
-      .write([item])
-      .then(function () {
-        alert("Image copied to clipboard!");
-      })
-      .catch(function (error) {
-        console.error("Failed to copy: ", error);
-        alert("Copy failed, please try again.");
-      });
-  });
-});
-
-</script>
-
+    </script>
+    
     <script src="js/parse-text.js"></script>
     <script src="js/chat.js"></script>
     <script src="js/color-picker.js"></script>

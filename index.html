@@ -95,7 +95,7 @@
     <script>
       $(document).ready(function () {
         $("#downloadOutput").click(function () {
-          //generated").css("background-color", "transparent");
+          //generated").css("background-color", "black");
           domtoimage
             .toBlob(document.getElementById("output"))
             .then(function (blob) {
@@ -113,11 +113,11 @@
               );
             })
             .then(function (blob) {
-              $(".generated").css("background-color", "transparent");
+              $(".generated").css("background-color", "black");
             });
         });
         $("#downloadOutputTransparent").click(function () {
-          $(".generated").css("background-color", "transparent");
+          $(".generated").css("background-color", "black  ");
           domtoimage
             .toBlob(document.getElementById("output"))
             .then(function (blob) {
@@ -135,7 +135,7 @@
               );
             })
             .then(function (blob) {
-              $(".generated").css("background-color", "transparent");
+              $(".generated").css("background-color", "black");
             });
         });
       });
